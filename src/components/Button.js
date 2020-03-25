@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+class Button extends Component {
 
-const Button = (props) => {
-  const { onClick, children } = props;
-  return (<button onClick={onClick}> { children }</button>);
-}
+  onClick = this.props.onClick;
+  children = this.props.children;
+
+  render() {
+    return(
+      <button onClick={this.onClick}> 
+        { this.children }
+      </button>
+    );
+  }
+} 
 
 export default Button;
