@@ -3,11 +3,12 @@
 Ce code reprend le jeu du loup garou pour la dernière séance de cours avec les L2 de l'UGA.
 Déroulement de la séance
 
-    Etant donné que le serveur Discord principal n'a pas de salon pour React, je vous invite sur un autre serveur.
-    Je suis également disponible toute la journée sur skype -- mon identifiant est pl.guhur.
-    Pendant la séance, nous allons travailler sur Material UI et Styled components
-    Puis un TP noté va reprendre l'ensemble des notions vues en cours.
-    Pensez à cloner ce repo et à répondre aux questions en modifiant directement ce README.
+    - Etant donné que le serveur Discord principal n'a pas de salon pour React, je vous invite sur un autre serveur.
+    - Je suis également disponible toute la journée sur skype -- mon identifiant est pl.guhur.
+    - Pendant la séance, nous allons travailler sur Material UI et Styled components
+    - Puis un TP noté va reprendre l'ensemble des notions vues en cours.
+    - Pensez à cloner ce repo et à répondre aux questions en modifiant directement ce README.
+
 
 ## Sass
 
@@ -18,14 +19,57 @@ Je vous invite à regarder la vidéo de Human Talks Paris.
 
 Quelques petites questions :
 
-    Résumer en une phrase l'intérêt de Material UI
-    Comment importer material-ui dans un fichier ?
-    Comment une application peut utiliser un thème à travers l'ensemble d'un projet ?
-    A quoi sert createMuiTheme ?
-    A quoi correspond palette ?
-    Comment re-définir des propriétés ?
-    A quoi vous fait penser withStyle ? Comment l'utiliser ?
-    Reproduire les deux boutons rouge et bleu présentées dans la vidéo.
+    - Résumer en une phrase l'intérêt de Material UI - C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
+    - Comment importer material-ui dans un fichier ? @import {LeComposant} from '@material-ui/core/suitedescomposants'
+    - Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? @import {MuiThemeProvider} from '@material-ui/core/styles' et on encapsule le MuiThemeProvider dans le render du projet
+    - A quoi sert createMuiTheme ?  On peut personnaliser un thème dans toute sa grandeur comme la police, la couleur de fond ... en créant un objet et le plaçant dans le provider
+    - A quoi correspond palette ? Palette permet de définir les couleurs primaires, secondaires par défaut si l'on souhaite les personnalisés
+    - Comment re-définir des propriétés ? On peut les redéfinir dans les classes précédentes en créant des objets et changeant les paramètres.
+    - A quoi vous fait penser withStyle ? Comment l'utiliser ? ça me fait penser à l'autorization qu'on a fait dans le précédant tp. On export l'app encapsulé du withStyle
+    - Reproduire les deux boutons rouge et bleu présentées dans la vidéo.
+    
+        import React, {Component} from 'react';
+        
+        import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+        import blue from '@material-ui/core/colors/blue';
+        import Button from '@material-ui/core/Button';
+        
+        class App extends Component{
+          render() {
+            return {
+              <MuiThemeProvider theme={theme}>
+                <div>
+                  <Button className={this.props.classes.myLeftButton}>Bonjour</Button>
+                  <Button>Human Talks !!</Button>
+                </div>
+              </MuiThemeProvider>
+            };
+          }
+        }
+        
+        const styles = {
+          myLeftButton: {
+            backgroundColor: "blue"
+          }
+        }
+        const theme = createMuiTheme({
+          palette: {
+            primary: blue
+          },
+          typography: {
+            fontSize: 15,
+            fontFamily: "Arial"
+          },
+          overrides: {
+            MuiButton: {
+              root: {
+                backgroundColor: "red",
+                "&:hover":  {backgroundColor:"yellow"}
+              }
+            }
+          }
+        })
+        export default withStyles(styles)(app);
 
 ## Styled Components
 
@@ -33,12 +77,12 @@ De la même manière, voici une vidéo pour introduire le sujet.
 
 Quelques petites questions :
 
-    Qu'est-ce que le CSS-in-JS ?
-    Qu'est-ce que sont les tagged templates (délimitées par des backticks) ?
-    Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
-    Comment utilise-t-on les props dans cette librarie ?
-    Reprendre l'exemple du Material UI avec styled-components; l'écrire avec la composition et avec l'héritage.
-    Quelles sont les fonctions du contexte de styled-components ?
+    - Qu'est-ce que le CSS-in-JS ? Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
+    - Qu'est-ce que sont les tagged templates (délimitées par des backticks) ?  Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
+    - Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
+    - Comment utilise-t-on les props dans cette librarie ?
+    - Reprendre l'exemple du Material UI avec styled-components; l'écrire avec la composition et avec l'héritage.
+    - Quelles sont les fonctions du contexte de styled-components ?
 
 ## Mise en place du design
 
@@ -56,7 +100,8 @@ Installation du projet
 Dans la console de Firebase, créer un nouveau projet. Dans le menu de gauche, cliquer sur "Authentication", puis cliquer sur l'onglet "Sign-in method", puis sélectionner "Anonymous" et activer le bouton "Enable". Ensuite, cliquer sur "Database" puis créer un "Cloud Firestore". Il est important de mettre la base de données en mode test.
 
 Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants Firebase. Ses identifiants Firebase peuvent être récupérés dans la console, en cliquant sur l'engrenage des paramètres, puis sur l'icone web </>. Il faut copier le authDomain, l'apiKey et le projetId dans .env.local. Attention à ne pas mettre d'espace autour des = ou de ;.
-Découverte du code
+
+### Découverte du code
 
     Le code utilise des fonctions plutôt que des classes. Ecrire un bouton sous la forme d'une classe et d'une fonction. Retrouver les équivalences entre les méthodes des composants (telles que setState) et celles des fonctions ?
     Comment récupérer les props dans une fonction ?
@@ -64,7 +109,20 @@ Découverte du code
     Identifier les différentes pages de l'application. Décrire à l'aide d'une phrase le rôle de chacune d'entre elles.
     Pourquoi voit-on sur plusieurs pages "Chargement du master game en cours" ?
     Avec les classes, nous utilisions withMyContext pour s'inscrire aux données d'un provider. Identifier dans services/Game.js la fonction qui joue désormais ce rôle.
-    Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données.o
+    Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données.
+    - App.js : Sorte de sommaire qui créé les liens entre les pages grâce aux route path.
+    - AlivePage.js : Indique le rôle de chaque joueur.
+    - CastPage.js : Permet de vérifier sir un joueur est encore en vie et l'envoyer sur la page d'attente (?)
+    - CodePage.js : Page qui s'affiche quand on clique sur 'Rejoindre une partie', permet de copier le code donné par ses amis, de rentrer un pseudo et de rejoindre une partie.
+    - CreatePage.js : Page qui s'affiche quand on clique sur 'Nouvelle partie', permet de générer un code pour que ses amis puissent rejoindre, et de lancer la partie.
+    - DeadPage.js : Page qui s'affiche quand le joueur meurt.
+    - EndPage.js : Page qui s'affiche quand la partie est terminée. Permet d'afficher le nom des gagnants.
+    - NightPage.js : Page qui s'affiche quand c'est la nuit.
+    - ResultsPage.js : Page qui s'affiche à la fin de chaque vote du village. Permet d'afficher qui a été tué par les villageois.
+    - SpellPage.js : Permet à la sorcière de choisir entre ses deux potions, ou de ne rie nfaire.
+    - StartPage.js : Page d'accueil commune à chaque joueur, permet de choisir entre créer une partie ou la rejoindre.
+    
+
 
 ### Reprise du design
 
@@ -95,5 +153,3 @@ Découverte du code
 
 Rédiger un court rapport -- inférieur à une page, expliquant les modifications apportées au projet. Motiver ses choix. Expliquer les difficultés rencontrées.
 
-- Qu'est-ce que le CSS-in-JS ? Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
-- Qu'est-ce que sont les tagged templates (délimitées par des backticks) ?  Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
