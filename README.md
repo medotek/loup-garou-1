@@ -89,14 +89,54 @@ Quelques petites questions :
 * Qu'est-ce que sont les tagged templates (délimitées par des backticks) ? 
   * Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
 
-Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
+* Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
+```javascript
+//avec
+const Button = styles.button(["color: green"])
+//sans
+const Button = styled.button`
+    color: green;
+`
+``` 
+* Comment utilise-t-on les props dans cette librarie ?
+  * 
+* Reprendre l'exemple du Material UI avec styled-components; l'écrire avec la composition et avec l'héritage.
+  ```javascript
+    import React from 'react';
+    import styled from 'styled-components'
 
-Comment utilise-t-on les props dans cette librarie ?
+    const commonstyles = `
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border: none;
+    `
 
-Reprendre l'exemple du Material UI avec styled-components; l'écrire avec la composition et avec l'héritage.
+    const Button1 = styled.button`
+      ${commonstyles}
 
-Quelles sont les fonctions du contexte de styled-components ?
-    
+      background-color: lightskyblue
+    `
+
+    const Button2 = styled.button`
+    ${commonstyles}
+
+    background-color: green
+    `
+
+    function App(props) {
+      return (
+        <div>
+          <Button1>Blue</Button1>
+          <Button2>Green</Button2>
+        </div>
+      );
+    }
+
+    export default (App);
+  ``` 
+* Quelles sont les fonctions du contexte de styled-components ?
+  *  gérer un thème
 
 ## Mise en place du design
 
