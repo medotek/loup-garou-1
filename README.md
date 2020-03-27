@@ -84,9 +84,9 @@ De la même manière, voici une vidéo pour introduire le sujet.
 
 Quelques petites questions :
 
-- Qu'est-ce que le CSS-in-JS ?
+  Qu'est-ce que le CSS-in-JS ?
 * Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
-- Qu'est-ce que sont les tagged templates (délimitées par des backticks) ? 
+  Qu'est-ce que sont les tagged templates (délimitées par des backticks) ? 
 * Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
 
 Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
@@ -117,25 +117,25 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
 
 ### Découverte du code
 
-    Le code utilise des fonctions plutôt que des classes. Ecrire un bouton sous la forme d'une classe et d'une fonction. Retrouver les équivalences entre les méthodes des composants (telles que setState) et celles des fonctions ?
-    Comment récupérer les props dans une fonction ?
-    Dans App.js, identifier les différents producteurs de données. Retrouver leur définition. Quelles données partagent-ils à l'ensemble de l'application ?
-    Identifier les différentes pages de l'application. Décrire à l'aide d'une phrase le rôle de chacune d'entre elles.
-    Pourquoi voit-on sur plusieurs pages "Chargement du master game en cours" ?
-    Avec les classes, nous utilisions withMyContext pour s'inscrire aux données d'un provider. Identifier dans services/Game.js la fonction qui joue désormais ce rôle.
-    Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données. A chaque changement dans le formulaire, des variables se mettent à jour (via une fonction event), quand on envoie le formulaire on récupère juste la valeur de ces variables sans charger une nouvelle page (ce qui signifierait une perte des infomations)
-    - App.js est une sorte de sommaire qui créé les liens entre les pages grâce aux route path.
-    - AlivePage.js indique le rôle de chaque joueur.
-    - CastPage.js vérifie si un joueur est encore en vie et le redirige sur la page d'attente (?)
-    - CodePage.js est une page qui s'affiche après avoir cliqué sur 'Rejoindre une partie', permet de copier le code donné par ses amis, de rentrer un pseudo et de rejoindre une partie.
-    - CreatePage.js est une page qui s'affiche quand on clique sur 'Nouvelle partie', permet de générer un code pour que ses amis puissent rejoindre, et de lancer la partie.
-    - DeadPage.js est une page qui s'affiche quand le joueur meurt.
-    - EndPage.js est une page qui s'affiche quand la partie est terminée. Permet d'afficher le nom des gagnants.
-    - NightPage.js est une page qui s'affiche quand c'est la nuit.
-    - ResultsPage.js est une page qui s'affiche à la fin de chaque vote du village. Permet d'afficher qui a été tué par les villageois.
-    - SpellPage.js permet à la sorcière de choisir entre ses deux potions, ou de ne rie nfaire.
-    - StartPage.js est une page d'accueil commune à chaque joueur, permet de choisir entre créer une partie ou la rejoindre.
-    
+Le code utilise des fonctions plutôt que des classes. Ecrire un bouton sous la forme d'une classe et d'une fonction. Retrouver les équivalences entre les méthodes des composants (telles que setState) et celles des fonctions ?
+Comment récupérer les props dans une fonction ?
+Dans App.js, identifier les différents producteurs de données. Retrouver leur définition. Quelles données partagent-ils à l'ensemble de l'application ?
+Identifier les différentes pages de l'application. Décrire à l'aide d'une phrase le rôle de chacune d'entre elles.
+Pourquoi voit-on sur plusieurs pages "Chargement du master game en cours" ?
+Avec les classes, nous utilisions withMyContext pour s'inscrire aux données d'un provider. Identifier dans services/Game.js la fonction qui joue désormais ce rôle.
+Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données. A chaque changement dans le formulaire, des variables se mettent à jour (via une fonction event), quand on envoie le formulaire on récupère juste la valeur de ces variables sans charger une nouvelle page (ce qui signifierait une perte des infomations)
+- App.js est une sorte de sommaire qui créé les liens entre les pages grâce aux route path.
+- AlivePage.js indique le rôle de chaque joueur.
+- CastPage.js vérifie si un joueur est encore en vie et le redirige sur la page d'attente (?)
+- CodePage.js est une page qui s'affiche après avoir cliqué sur 'Rejoindre une partie', permet de copier le code donné par ses amis, de rentrer un pseudo et de rejoindre une partie.
+- CreatePage.js est une page qui s'affiche quand on clique sur 'Nouvelle partie', permet de générer un code pour que ses amis puissent rejoindre, et de lancer la partie.
+- DeadPage.js est une page qui s'affiche quand le joueur meurt.
+- EndPage.js est une page qui s'affiche quand la partie est terminée. Permet d'afficher le nom des gagnants.
+- NightPage.js est une page qui s'affiche quand c'est la nuit.
+- ResultsPage.js est une page qui s'affiche à la fin de chaque vote du village. Permet d'afficher qui a été tué par les villageois.
+- SpellPage.js permet à la sorcière de choisir entre ses deux potions, ou de ne rie nfaire.
+- StartPage.js est une page d'accueil commune à chaque joueur, permet de choisir entre créer une partie ou la rejoindre.
+
 
 
 ### Reprise du design
@@ -148,15 +148,15 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
 
 ### Utilisation de Firebase
 
-    Dans 'User.js', comment fait-on pour garder une trace persistente de l'application, même lorsqu'on rafraichit la page ? Comment reconnait-on l'utilisateur lorsqu'il revient dans l'application ?
-    ⋅⋅* Grace aux cookies. Ca stock l'information dans firebase et sur notre navigateur à chaque connexion
-    Dans Firebase, nous ne pouvons pas ajouter des champs à un utilisateur. Par conséquent, nous devons créer une collection d'utilisateurs et synchroniser les utilisateurs avec cette table. Expliquer où est-ce que cette synchronisation a lieu. 
-    ⋅⋅* Pour conserver les infos dans un navigateur, firebase va checker si l'utilisateur s'est déjà connecté sur l'app ou pas ce qui va lui permettre de s'identifier dans la collection d'utilisateurs. 
-    A votre avis, à quoi sert useEffect ? 
-    ⋅⋅* Charger des données depuis un serveur distant, s’abonner à quelque chose et modifier manuellement le DOM sont autant d’exemples d’effets de bord.
-    A quoi sert la fonction unsubscribe utilisée dans les useEffect de User.js ?
-    Décrire les trois valeurs de retour de UseUser.
-    Combien de collections dans Firebase pouvez-vous identifier ? A quoi correspondent les doc ?
+  Dans 'User.js', comment fait-on pour garder une trace persistente de l'application, même lorsqu'on rafraichit la page ? Comment reconnait-on l'utilisateur lorsqu'il revient dans l'application ?
+* Grace aux cookies. Ca stock l'information dans firebase et sur notre navigateur à chaque connexion
+  Dans Firebase, nous ne pouvons pas ajouter des champs à un utilisateur. Par conséquent, nous devons créer une collection d'utilisateurs et synchroniser les utilisateurs avec cette table. Expliquer où est-ce que cette synchronisation a lieu. 
+* Pour conserver les infos dans un navigateur, firebase va checker si l'utilisateur s'est déjà connecté sur l'app ou pas ce qui va lui permettre de s'identifier dans la collection d'utilisateurs. 
+  A votre avis, à quoi sert useEffect ? 
+* Charger des données depuis un serveur distant, s’abonner à quelque chose et modifier manuellement le DOM sont autant d’exemples d’effets de bord.
+  A quoi sert la fonction unsubscribe utilisée dans les useEffect de User.js ?
+  Décrire les trois valeurs de retour de UseUser.
+  Combien de collections dans Firebase pouvez-vous identifier ? A quoi correspondent les doc ?
 
 ### Contribuer à l'application
 
