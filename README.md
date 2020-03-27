@@ -19,65 +19,65 @@ Je vous invite à regarder la vidéo de Human Talks Paris.
 
 Quelques petites questions :
 
-    - Résumer en une phrase l'intérêt de Material UI 
-    ⋅⋅* C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
-    - Comment importer material-ui dans un fichier ? 
-    ⋅⋅* @import {LeComposant} from '@material-ui/core/suitedescomposants'
-    - Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? 
-    ⋅⋅* @import {MuiThemeProvider} from '@material-ui/core/styles' et on encapsule le MuiThemeProvider dans le render du projet
-    - A quoi sert createMuiTheme ? 
-    ⋅⋅*On peut personnaliser un thème dans toute sa grandeur comme la police, la couleur de fond ... en créant un objet et le plaçant dans le provider
-    - A quoi correspond palette ? 
-    ⋅⋅* Palette permet de définir les couleurs primaires, secondaires par défaut si l'on souhaite les personnalisés
-    - Comment re-définir des propriétés ? 
-    ⋅⋅*On peut les redéfinir dans les classes précédentes en créant des objets et changeant les paramètres.
-    - A quoi vous fait penser withStyle ? Comment l'utiliser ? 
-    ⋅⋅* ça me fait penser à l'autorization qu'on a fait dans le précédant tp. On export l'app encapsulé du withStyle
-    - Reproduire les deux boutons rouge et bleu présentées dans la vidéo.
-    `
-        import React, {Component} from 'react';
-        
-        import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
-        import blue from '@material-ui/core/colors/blue';
-        import Button from '@material-ui/core/Button';
-        
-        class App extends Component{
-          render() {
-            return {
-              <MuiThemeProvider theme={theme}>
-                <div>
-                  <Button className={this.props.classes.myLeftButton}>Bonjour</Button>
-                  <Button>Human Talks !!</Button>
-                </div>
-              </MuiThemeProvider>
-            };
-          }
-        }
-        
-        const styles = {
-          myLeftButton: {
-            backgroundColor: "blue"
-          }
-        }
-        const theme = createMuiTheme({
-          palette: {
-            primary: blue
-          },
-          typography: {
-            fontSize: 15,
-            fontFamily: "Arial"
-          },
-          overrides: {
-            MuiButton: {
-              root: {
-                backgroundColor: "red",
-                "&:hover":  {backgroundColor:"yellow"}
-              }
-            }
-          }
-        })
-        export default withStyles(styles)(app);
- `
+Résumer en une phrase l'intérêt de Material UI 
+⋅⋅* C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
+Comment importer material-ui dans un fichier ? 
+⋅⋅* @import {LeComposant} from '@material-ui/core/suitedescomposants'
+Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? 
+⋅⋅* @import {MuiThemeProvider} from '@material-ui/core/styles' et on encapsule le MuiThemeProvider dans le render du projet
+A quoi sert createMuiTheme ? 
+⋅⋅*On peut personnaliser un thème dans toute sa grandeur comme la police, la couleur de fond ... en créant un objet et le plaçant dans le provider
+A quoi correspond palette ? 
+⋅⋅* Palette permet de définir les couleurs primaires, secondaires par défaut si l'on souhaite les personnalisés
+Comment re-définir des propriétés ? 
+⋅⋅*On peut les redéfinir dans les classes précédentes en créant des objets et changeant les paramètres.
+A quoi vous fait penser withStyle ? Comment l'utiliser ? 
+⋅⋅* ça me fait penser à l'autorization qu'on a fait dans le précédant tp. On export l'app encapsulé du withStyle
+Reproduire les deux boutons rouge et bleu présentées dans la vidéo.
+` 
+import React, {Component} from 'react';
+
+import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import Button from '@material-ui/core/Button';
+
+class App extends Component{
+  render() {
+    return {
+      <MuiThemeProvider theme={theme}>
+        <div>
+          <Button className={this.props.classes.myLeftButton}>Bonjour</Button>
+          <Button>Human Talks !!</Button>
+        </div>
+      </MuiThemeProvider>
+    };
+  }
+}
+
+const styles = {
+  myLeftButton: {
+    backgroundColor: "blue"
+  }
+}
+const theme = createMuiTheme({
+  palette: {
+    primary: blue
+  },
+  typography: {
+    fontSize: 15,
+    fontFamily: "Arial"
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        backgroundColor: "red",
+        "&:hover":  {backgroundColor:"yellow"}
+      }
+    }
+  }
+})
+export default withStyles(styles)(app);
+`
 ## Styled Components
 
 De la même manière, voici une vidéo pour introduire le sujet.
