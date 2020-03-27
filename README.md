@@ -84,10 +84,10 @@ De la même manière, voici une vidéo pour introduire le sujet.
 
 Quelques petites questions :
 
-  Qu'est-ce que le CSS-in-JS ?
-* Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
-  Qu'est-ce que sont les tagged templates (délimitées par des backticks) ? 
-* Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
+* Qu'est-ce que le CSS-in-JS ?
+  * Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
+* Qu'est-ce que sont les tagged templates (délimitées par des backticks) ? 
+  * Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
 
 Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
 
@@ -148,15 +148,15 @@ Dans CodePage, rappeler comment un formulaire gère les champs de remplissage de
 
 ### Utilisation de Firebase
 
-  Dans 'User.js', comment fait-on pour garder une trace persistente de l'application, même lorsqu'on rafraichit la page ? Comment reconnait-on l'utilisateur lorsqu'il revient dans l'application ?
-* Grace aux cookies. Ca stock l'information dans firebase et sur notre navigateur à chaque connexion
-  Dans Firebase, nous ne pouvons pas ajouter des champs à un utilisateur. Par conséquent, nous devons créer une collection d'utilisateurs et synchroniser les utilisateurs avec cette table. Expliquer où est-ce que cette synchronisation a lieu. 
-* Pour conserver les infos dans un navigateur, firebase va checker si l'utilisateur s'est déjà connecté sur l'app ou pas ce qui va lui permettre de s'identifier dans la collection d'utilisateurs. 
-  A votre avis, à quoi sert useEffect ? 
-* Charger des données depuis un serveur distant, s’abonner à quelque chose et modifier manuellement le DOM sont autant d’exemples d’effets de bord.
-  A quoi sert la fonction unsubscribe utilisée dans les useEffect de User.js ?
-  Décrire les trois valeurs de retour de UseUser.
-  Combien de collections dans Firebase pouvez-vous identifier ? A quoi correspondent les doc ?
+* Dans 'User.js', comment fait-on pour garder une trace persistente de l'application, même lorsqu'on rafraichit la page ? Comment reconnait-on l'utilisateur lorsqu'il revient dans l'application ?
+  * Grace aux cookies. Ca stock l'information dans firebase et sur notre navigateur à chaque connexion
+* Dans Firebase, nous ne pouvons pas ajouter des champs à un utilisateur. Par conséquent, nous devons créer une collection d'utilisateurs et synchroniser les utilisateurs avec cette table. Expliquer où est-ce que cette synchronisation a lieu. 
+  * Pour conserver les infos dans un navigateur, firebase va checker si l'utilisateur s'est déjà connecté sur l'app ou pas ce qui va lui permettre de s'identifier dans la collection d'utilisateurs. 
+* A votre avis, à quoi sert useEffect ? 
+  * Charger des données depuis un serveur distant, s’abonner à quelque chose et modifier manuellement le DOM sont autant d’exemples d’effets de bord.
+* A quoi sert la fonction unsubscribe utilisée dans les useEffect de User.js ?
+  * Décrire les trois valeurs de retour de UseUser.
+* Combien de collections dans Firebase pouvez-vous identifier ? A quoi correspondent les doc ?
 
 ### Contribuer à l'application
 
