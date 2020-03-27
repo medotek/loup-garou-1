@@ -13,26 +13,30 @@ Déroulement de la séance
 ## Sass
 
 Au cas où vous avez un trou de mémoire sur Sass, voici un rappel de la syntaxe.
-Material UI
+## Material UI
 
 Je vous invite à regarder la vidéo de Human Talks Paris.
 
 Quelques petites questions :
 
-Résumer en une phrase l'intérêt de Material UI 
-*  C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
-Comment importer material-ui dans un fichier ? 
-*  @import {LeComposant} from '@material-ui/core/suitedescomposants'
-Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? 
-*  @import {MuiThemeProvider} from '@material-ui/core/styles' et on encapsule le MuiThemeProvider dans le render du projet
-A quoi sert createMuiTheme ? 
-* On peut personnaliser un thème dans toute sa grandeur comme la police, la couleur de fond ... en créant un objet et le plaçant dans le provider
-A quoi correspond palette ? 
-*  Palette permet de définir les couleurs primaires, secondaires par défaut si l'on souhaite les personnalisés
-Comment re-définir des propriétés ? 
-* On peut les redéfinir dans les classes précédentes en créant des objets et changeant les paramètres.
-A quoi vous fait penser withStyle ? Comment l'utiliser ? 
-*  ça me fait penser à l'autorization qu'on a fait dans le précédant tp. On export l'app encapsulé du withStyle
+* Résumer en une phrase l'intérêt de Material UI 
+  * C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
+* Comment importer material-ui dans un fichier ? 
+  ```javascript 
+  @import {LeComposant} from '@material-ui/core/suitedescomposants'
+  ``` 
+* Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? 
+  ```javascript 
+  @import {MuiThemeProvider} from '@material-ui/core/styles' //et on encapsule l'app dans MuiThemeProvider
+  ```
+* A quoi sert createMuiTheme ? 
+  * On peut personnaliser un thème dans toute sa grandeur comme la police, la couleur de fond ... en créant un objet et le plaçant dans le provider
+* A quoi correspond palette ? 
+  * Palette correspond aux couleurs utilisées par l'app
+* Comment re-définir des propriétés ? 
+  * avec overrides
+* A quoi vous fait penser withStyle ? Comment l'utiliser ? 
+  * ça me fait penser à l'autorization qu'on a fait dans le précédant tp. On export l'app encapsulé du withStyle
 Reproduire les deux boutons rouge et bleu présentées dans la vidéo.
 ```javascript
 import React, {Component} from 'react';
