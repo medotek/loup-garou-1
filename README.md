@@ -22,11 +22,11 @@ Quelques petites questions :
 * Résumer en une phrase l'intérêt de Material UI 
   * C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
 * Comment importer material-ui dans un fichier ? 
-  ```javascript 
+  * ```javascript 
   @import {LeComposant} from '@material-ui/core/suitedescomposants'
   ``` 
 * Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? 
-  ```javascript 
+  * ```javascript 
   @import {MuiThemeProvider} from '@material-ui/core/styles' //et on encapsule l'app dans MuiThemeProvider
   ```
 * A quoi sert createMuiTheme ? 
