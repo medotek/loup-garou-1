@@ -119,13 +119,13 @@ const Button = styled.button`
     const Button1 = styled.button`
       ${commonstyles}
 
-      background-color: lightskyblue
+      background-color: blue
     `
 
     const Button2 = styled.button`
-    ${commonstyles}
+      ${commonstyles}
 
-    background-color: green
+      background-color: green
     `
 
     function App(props) {
@@ -138,6 +138,45 @@ const Button = styled.button`
     }
 
     export default (App);
+
+    
+    //héritage
+    import React from 'react';
+    import styled from 'styled-components'
+
+    const commonstyles = `
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 8px 16px;
+    border: none;
+    `
+
+    const Button1 = styled.button`
+      border-radius: 3px;
+      cursor: pointer;
+      padding: 8px 16px;
+      border: none; 
+
+
+      background-color: blue
+    `
+
+    const Button2 = styled(Button1)`
+
+      background-color: green
+    `
+
+    function App(props) {
+      return (
+        <div>
+          <Button1>Blue</Button1>
+          <Button2>Green</Button2>
+        </div>
+      );
+    }
+
+    export default (App);
+    
   ``` 
 * Quelles sont les fonctions du contexte de styled-components ?
   *  gérer un thème
@@ -171,32 +210,38 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
       }
     ```
 * Comment récupérer les props dans une fonction ?
-  *  ```javascript
+  *   ```javascript
         const Button = (props) => {
           const { onClick, children } = props;
           return (<button onClick={onClick}> { children }</button>);
         }
-    ```
+      ```
 * Dans App.js, identifier les différents producteurs de données. Retrouver leur définition. Quelles données partagent-ils à l'ensemble de l'application ?
-
+  - BrowserRoute
+  - UserProvider
+  - MasterGameProvider
+  - GameProvider
 * Identifier les différentes pages de l'application. Décrire à l'aide d'une phrase le rôle de chacune d'entre elles.
+  - App.js est une sorte de sommaire qui créé les liens entre les pages grâce aux route path.
+  - AlivePage.js indique le rôle de chaque joueur.
+  - CastPage.js vérifie si un joueur est encore en vie et le redirige sur la page d'attente (?)
+  - CodePage.js est une page qui s'affiche après avoir cliqué sur 'Rejoindre une partie', permet de copier le code donné par ses amis, de rentrer un pseudo et de rejoindre une partie.
+  - CreatePage.js est une page qui s'affiche quand on clique sur 'Nouvelle partie', permet de générer un code pour que ses amis puissent rejoindre, et de lancer la partie.
+  - DeadPage.js est une page qui s'affiche quand le joueur meurt.
+  - EndPage.js est une page qui s'affiche quand la partie est terminée. Permet d'afficher le nom des gagnants.
+  - NightPage.js est une page qui s'affiche quand c'est la nuit.
+  - ResultsPage.js est une page qui s'affiche à la fin de chaque vote du village. Permet d'afficher qui a été tué par les villageois.
+  - SpellPage.js permet à la sorcière de choisir entre ses deux potions, ou de ne rie nfaire.
+  - StartPage.js est une page d'accueil commune à chaque joueur, permet de choisir entre créer une partie ou la rejoindre.
 
 * Pourquoi voit-on sur plusieurs pages "Chargement du master game en cours" ?
+  *  provider MasterGame 
+* Avec les classes, nous utilisions withMyContext pour s'inscrire aux données d'un provider. Identifier dans services/Game.js la fonction qui joue désormais ce rôle.
+  * useGame
 
-Avec les classes, nous utilisions withMyContext pour s'inscrire aux données d'un provider. Identifier dans services/Game.js la fonction qui joue désormais ce rôle.
-Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données. A chaque changement dans le formulaire, des variables se mettent à jour (via une fonction event), quand on envoie le formulaire on récupère juste la valeur de ces variables sans charger une nouvelle page (ce qui signifierait une perte des infomations)
-* - App.js est une sorte de sommaire qui créé les liens entre les pages grâce aux route path.
-- AlivePage.js indique le rôle de chaque joueur.
-- CastPage.js vérifie si un joueur est encore en vie et le redirige sur la page d'attente (?)
-- CodePage.js est une page qui s'affiche après avoir cliqué sur 'Rejoindre une partie', permet de copier le code donné par ses amis, de rentrer un pseudo et de rejoindre une partie.
-- CreatePage.js est une page qui s'affiche quand on clique sur 'Nouvelle partie', permet de générer un code pour que ses amis puissent rejoindre, et de lancer la partie.
-- DeadPage.js est une page qui s'affiche quand le joueur meurt.
-- EndPage.js est une page qui s'affiche quand la partie est terminée. Permet d'afficher le nom des gagnants.
-- NightPage.js est une page qui s'affiche quand c'est la nuit.
-- ResultsPage.js est une page qui s'affiche à la fin de chaque vote du village. Permet d'afficher qui a été tué par les villageois.
-- SpellPage.js permet à la sorcière de choisir entre ses deux potions, ou de ne rie nfaire.
-- StartPage.js est une page d'accueil commune à chaque joueur, permet de choisir entre créer une partie ou la rejoindre.
 
+* Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données. A chaque changement dans le formulaire, des variables se mettent à jour (via une fonction event), quand on envoie le formulaire on récupère juste la valeur de ces variables sans charger une nouvelle page (ce qui signifierait une perte des infomations)
+  * On stocke une nouvelle valeur dans le state à chaque modification. Au submit, on récupère cette valeur.
 
 
 ### Reprise du design
@@ -218,9 +263,13 @@ Dans CodePage, rappeler comment un formulaire gère les champs de remplissage de
 * A quoi sert la fonction unsubscribe utilisée dans les useEffect de User.js ?
   *
 * Décrire les trois valeurs de retour de UseUser.
-  *
+  * error: Contient les informations sur l'erreur si une erreur s'est produite
+  * loading: Indique si les informations sont encore en cours de chargement ou non
+  * user: l'objet user
+
 * Combien de collections dans Firebase pouvez-vous identifier ? A quoi correspondent les doc ?
-* 
+  * 2 collections : user et game
+  * Un document correspond à une entrée dans la collection
 ### Contribuer à l'application
 
     Lors du lancement du jeu, ajouter l'attribution des rôles à chaque joueur : loup-garou, villageois, petite fille ou sorcier. Le nombre de loup-garou est calculé en fonction du nombre de joueurs.
