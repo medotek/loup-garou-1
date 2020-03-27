@@ -84,16 +84,18 @@ De la même manière, voici une vidéo pour introduire le sujet.
 
 Quelques petites questions :
 
-    - Qu'est-ce que le CSS-in-JS ? Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
-    - Qu'est-ce que sont les tagged templates (délimitées par des backticks) ?  Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
+Qu'est-ce que le CSS-in-JS ?
+* Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
+Qu'est-ce que sont les tagged templates (délimitées par des backticks) ? 
+* Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
 
-    - Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
+Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
 
-    - Comment utilise-t-on les props dans cette librarie ?
+Comment utilise-t-on les props dans cette librarie ?
 
-    - Reprendre l'exemple du Material UI avec styled-components; l'écrire avec la composition et avec l'héritage.
+Reprendre l'exemple du Material UI avec styled-components; l'écrire avec la composition et avec l'héritage.
 
-    - Quelles sont les fonctions du contexte de styled-components ?
+Quelles sont les fonctions du contexte de styled-components ?
     
 
 ## Mise en place du design
