@@ -139,7 +139,7 @@ const Button = styled.button`
 
     export default (App);
 
-    
+
     //héritage
     import React from 'react';
     import styled from 'styled-components'
@@ -231,8 +231,8 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
   - EndPage.js est une page qui s'affiche quand la partie est terminée. Permet d'afficher le nom des gagnants.
   - NightPage.js est une page qui s'affiche quand c'est la nuit.
   - ResultsPage.js est une page qui s'affiche à la fin de chaque vote du village. Permet d'afficher qui a été tué par les villageois.
-  - SpellPage.js permet à la sorcière de choisir entre ses deux potions, ou de ne rie nfaire.
-  - StartPage.js est une page d'accueil commune à chaque joueur, permet de choisir entre créer une partie ou la rejoindre.
+  - SpellPage.js permet à la sorcière de choisir entre ses deux potions, ou de ne rien faire.
+  - StartPage.js est une page d'accueil commune à chaque joueur et permet de créer une partie ou la rejoindre.
 
 * Pourquoi voit-on sur plusieurs pages "Chargement du master game en cours" ?
   *  provider MasterGame 
@@ -261,7 +261,7 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
 * A votre avis, à quoi sert useEffect ? 
   * Charger des données depuis un serveur distant, s’abonner à quelque chose et modifier manuellement le DOM sont autant d’exemples d’effets de bord.
 * A quoi sert la fonction unsubscribe utilisée dans les useEffect de User.js ?
-  *
+  * 
 * Décrire les trois valeurs de retour de UseUser.
   * error: Contient les informations sur l'erreur si une erreur s'est produite
   * loading: Indique si les informations sont encore en cours de chargement ou non
