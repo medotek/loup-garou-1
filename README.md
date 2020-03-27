@@ -23,11 +23,11 @@ Quelques petites questions :
   * C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
 * Comment importer material-ui dans un fichier ? 
   * ```javascript 
-  @import {LeComposant} from '@material-ui/core/suitedescomposants'
+      @import {LeComposant} from '@material-ui/core/suitedescomposants'
   ``` 
 * Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? 
   * ```javascript 
-  @import {MuiThemeProvider} from '@material-ui/core/styles' //et on encapsule l'app dans MuiThemeProvider
+      @import {MuiThemeProvider} from '@material-ui/core/styles' //et on encapsule l'app dans MuiThemeProvider
   ```
 * A quoi sert createMuiTheme ? 
   * On peut personnaliser un thème dans toute sa grandeur comme la police, la couleur de fond ... en créant un objet et le plaçant dans le provider
