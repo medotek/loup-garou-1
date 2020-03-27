@@ -84,9 +84,9 @@ De la même manière, voici une vidéo pour introduire le sujet.
 
 Quelques petites questions :
 
-Qu'est-ce que le CSS-in-JS ?
+- Qu'est-ce que le CSS-in-JS ?
 * Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
-Qu'est-ce que sont les tagged templates (délimitées par des backticks) ? 
+- Qu'est-ce que sont les tagged templates (délimitées par des backticks) ? 
 * Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
 
 Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
