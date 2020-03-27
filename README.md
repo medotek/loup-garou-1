@@ -19,15 +19,22 @@ Je vous invite à regarder la vidéo de Human Talks Paris.
 
 Quelques petites questions :
 
-    - Résumer en une phrase l'intérêt de Material UI - C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
-    - Comment importer material-ui dans un fichier ? @import {LeComposant} from '@material-ui/core/suitedescomposants'
-    - Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? @import {MuiThemeProvider} from '@material-ui/core/styles' et on encapsule le MuiThemeProvider dans le render du projet
-    - A quoi sert createMuiTheme ?  On peut personnaliser un thème dans toute sa grandeur comme la police, la couleur de fond ... en créant un objet et le plaçant dans le provider
-    - A quoi correspond palette ? Palette permet de définir les couleurs primaires, secondaires par défaut si l'on souhaite les personnalisés
-    - Comment re-définir des propriétés ? On peut les redéfinir dans les classes précédentes en créant des objets et changeant les paramètres.
-    - A quoi vous fait penser withStyle ? Comment l'utiliser ? ça me fait penser à l'autorization qu'on a fait dans le précédant tp. On export l'app encapsulé du withStyle
+    - Résumer en une phrase l'intérêt de Material UI 
+    ⋅⋅* C'est une bibliothèque de composants permettant de designer une interface en plus de pouvoir les customiser, elle propose des couleurs ainsi que des éléments tel que les boutons. 
+    - Comment importer material-ui dans un fichier ? 
+    ⋅⋅* @import {LeComposant} from '@material-ui/core/suitedescomposants'
+    - Comment une application peut utiliser un thème à travers l'ensemble d'un projet ? 
+    ⋅⋅* @import {MuiThemeProvider} from '@material-ui/core/styles' et on encapsule le MuiThemeProvider dans le render du projet
+    - A quoi sert createMuiTheme ? 
+    ⋅⋅*On peut personnaliser un thème dans toute sa grandeur comme la police, la couleur de fond ... en créant un objet et le plaçant dans le provider
+    - A quoi correspond palette ? 
+    ⋅⋅* Palette permet de définir les couleurs primaires, secondaires par défaut si l'on souhaite les personnalisés
+    - Comment re-définir des propriétés ? 
+    ⋅⋅*On peut les redéfinir dans les classes précédentes en créant des objets et changeant les paramètres.
+    - A quoi vous fait penser withStyle ? Comment l'utiliser ? 
+    ⋅⋅* ça me fait penser à l'autorization qu'on a fait dans le précédant tp. On export l'app encapsulé du withStyle
     - Reproduire les deux boutons rouge et bleu présentées dans la vidéo.
-    
+    `
         import React, {Component} from 'react';
         
         import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
@@ -70,7 +77,7 @@ Quelques petites questions :
           }
         })
         export default withStyles(styles)(app);
-
+ `
 ## Styled Components
 
 De la même manière, voici une vidéo pour introduire le sujet.
@@ -79,10 +86,15 @@ Quelques petites questions :
 
     - Qu'est-ce que le CSS-in-JS ? Permet de générer des classes dynamiques, de résoudre les problèmes de scope et d'effet de bord.
     - Qu'est-ce que sont les tagged templates (délimitées par des backticks) ?  Ces espaces sont indiqués par le signe dollar ($) et des accolades (${expression}). Les expressions dans les espaces réservés et le texte compris dans ces espaces sont passés à une fonction.
+
     - Donner un exemple d'un bouton personnalisé avec et sans les tagged templates ?
+
     - Comment utilise-t-on les props dans cette librarie ?
+
     - Reprendre l'exemple du Material UI avec styled-components; l'écrire avec la composition et avec l'héritage.
+
     - Quelles sont les fonctions du contexte de styled-components ?
+    
 
 ## Mise en place du design
 
@@ -109,18 +121,18 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
     Identifier les différentes pages de l'application. Décrire à l'aide d'une phrase le rôle de chacune d'entre elles.
     Pourquoi voit-on sur plusieurs pages "Chargement du master game en cours" ?
     Avec les classes, nous utilisions withMyContext pour s'inscrire aux données d'un provider. Identifier dans services/Game.js la fonction qui joue désormais ce rôle.
-    Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données.
-    - App.js : Sorte de sommaire qui créé les liens entre les pages grâce aux route path.
-    - AlivePage.js : Indique le rôle de chaque joueur.
-    - CastPage.js : Permet de vérifier sir un joueur est encore en vie et l'envoyer sur la page d'attente (?)
-    - CodePage.js : Page qui s'affiche quand on clique sur 'Rejoindre une partie', permet de copier le code donné par ses amis, de rentrer un pseudo et de rejoindre une partie.
-    - CreatePage.js : Page qui s'affiche quand on clique sur 'Nouvelle partie', permet de générer un code pour que ses amis puissent rejoindre, et de lancer la partie.
-    - DeadPage.js : Page qui s'affiche quand le joueur meurt.
-    - EndPage.js : Page qui s'affiche quand la partie est terminée. Permet d'afficher le nom des gagnants.
-    - NightPage.js : Page qui s'affiche quand c'est la nuit.
-    - ResultsPage.js : Page qui s'affiche à la fin de chaque vote du village. Permet d'afficher qui a été tué par les villageois.
-    - SpellPage.js : Permet à la sorcière de choisir entre ses deux potions, ou de ne rie nfaire.
-    - StartPage.js : Page d'accueil commune à chaque joueur, permet de choisir entre créer une partie ou la rejoindre.
+    Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données. A chaque changement dans le formulaire, des variables se mettent à jour (via une fonction event), quand on envoie le formulaire on récupère juste la valeur de ces variables sans charger une nouvelle page (ce qui signifierait une perte des infomations)
+    - App.js est une sorte de sommaire qui créé les liens entre les pages grâce aux route path.
+    - AlivePage.js indique le rôle de chaque joueur.
+    - CastPage.js vérifie si un joueur est encore en vie et le redirige sur la page d'attente (?)
+    - CodePage.js est une page qui s'affiche après avoir cliqué sur 'Rejoindre une partie', permet de copier le code donné par ses amis, de rentrer un pseudo et de rejoindre une partie.
+    - CreatePage.js est une page qui s'affiche quand on clique sur 'Nouvelle partie', permet de générer un code pour que ses amis puissent rejoindre, et de lancer la partie.
+    - DeadPage.js est une page qui s'affiche quand le joueur meurt.
+    - EndPage.js est une page qui s'affiche quand la partie est terminée. Permet d'afficher le nom des gagnants.
+    - NightPage.js est une page qui s'affiche quand c'est la nuit.
+    - ResultsPage.js est une page qui s'affiche à la fin de chaque vote du village. Permet d'afficher qui a été tué par les villageois.
+    - SpellPage.js permet à la sorcière de choisir entre ses deux potions, ou de ne rie nfaire.
+    - StartPage.js est une page d'accueil commune à chaque joueur, permet de choisir entre créer une partie ou la rejoindre.
     
 
 
@@ -135,8 +147,11 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
 ### Utilisation de Firebase
 
     Dans 'User.js', comment fait-on pour garder une trace persistente de l'application, même lorsqu'on rafraichit la page ? Comment reconnait-on l'utilisateur lorsqu'il revient dans l'application ?
-    Dans Firebase, nous ne pouvons pas ajouter des champs à un utilisateur. Par conséquent, nous devons créer une collection d'utilisateurs et synchroniser les utilisateurs avec cette table. Expliquer où est-ce que cette synchronisation a lieu.
-    A votre avis, à quoi sert useEffect ?
+    ⋅⋅* Grace aux cookies. Ca stock l'information dans firebase et sur notre navigateur à chaque connexion
+    Dans Firebase, nous ne pouvons pas ajouter des champs à un utilisateur. Par conséquent, nous devons créer une collection d'utilisateurs et synchroniser les utilisateurs avec cette table. Expliquer où est-ce que cette synchronisation a lieu. 
+    ⋅⋅* Pour conserver les infos dans un navigateur, firebase va checker si l'utilisateur s'est déjà connecté sur l'app ou pas ce qui va lui permettre de s'identifier dans la collection d'utilisateurs. 
+    A votre avis, à quoi sert useEffect ? 
+    ⋅⋅* Charger des données depuis un serveur distant, s’abonner à quelque chose et modifier manuellement le DOM sont autant d’exemples d’effets de bord.
     A quoi sert la fonction unsubscribe utilisée dans les useEffect de User.js ?
     Décrire les trois valeurs de retour de UseUser.
     Combien de collections dans Firebase pouvez-vous identifier ? A quoi correspondent les doc ?
