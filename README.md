@@ -161,14 +161,31 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
 
 ### Découverte du code
 
-Le code utilise des fonctions plutôt que des classes. Ecrire un bouton sous la forme d'une classe et d'une fonction. Retrouver les équivalences entre les méthodes des composants (telles que setState) et celles des fonctions ?
-Comment récupérer les props dans une fonction ?
-Dans App.js, identifier les différents producteurs de données. Retrouver leur définition. Quelles données partagent-ils à l'ensemble de l'application ?
-Identifier les différentes pages de l'application. Décrire à l'aide d'une phrase le rôle de chacune d'entre elles.
-Pourquoi voit-on sur plusieurs pages "Chargement du master game en cours" ?
+* Le code utilise des fonctions plutôt que des classes. Ecrire un bouton sous la forme d'une classe et d'une fonction. Retrouver les équivalences entre les méthodes des composants (telles que setState) et celles des fonctions ?
+  * ```javascript
+      class Button extends React.Component {
+        renter {
+          const { onClick, children } = this.props;
+          return (<button onClick={onClick}> { children }</button>);
+        }
+      }
+    ```
+* Comment récupérer les props dans une fonction ?
+  *  ```javascript
+        const Button = (props) => {
+          const { onClick, children } = props;
+          return (<button onClick={onClick}> { children }</button>);
+        }
+    ```
+* Dans App.js, identifier les différents producteurs de données. Retrouver leur définition. Quelles données partagent-ils à l'ensemble de l'application ?
+
+* Identifier les différentes pages de l'application. Décrire à l'aide d'une phrase le rôle de chacune d'entre elles.
+
+* Pourquoi voit-on sur plusieurs pages "Chargement du master game en cours" ?
+
 Avec les classes, nous utilisions withMyContext pour s'inscrire aux données d'un provider. Identifier dans services/Game.js la fonction qui joue désormais ce rôle.
 Dans CodePage, rappeler comment un formulaire gère les champs de remplissage des données. A chaque changement dans le formulaire, des variables se mettent à jour (via une fonction event), quand on envoie le formulaire on récupère juste la valeur de ces variables sans charger une nouvelle page (ce qui signifierait une perte des infomations)
-- App.js est une sorte de sommaire qui créé les liens entre les pages grâce aux route path.
+* - App.js est une sorte de sommaire qui créé les liens entre les pages grâce aux route path.
 - AlivePage.js indique le rôle de chaque joueur.
 - CastPage.js vérifie si un joueur est encore en vie et le redirige sur la page d'attente (?)
 - CodePage.js est une page qui s'affiche après avoir cliqué sur 'Rejoindre une partie', permet de copier le code donné par ses amis, de rentrer un pseudo et de rejoindre une partie.
@@ -199,9 +216,11 @@ Dans CodePage, rappeler comment un formulaire gère les champs de remplissage de
 * A votre avis, à quoi sert useEffect ? 
   * Charger des données depuis un serveur distant, s’abonner à quelque chose et modifier manuellement le DOM sont autant d’exemples d’effets de bord.
 * A quoi sert la fonction unsubscribe utilisée dans les useEffect de User.js ?
-  * Décrire les trois valeurs de retour de UseUser.
+  *
+* Décrire les trois valeurs de retour de UseUser.
+  *
 * Combien de collections dans Firebase pouvez-vous identifier ? A quoi correspondent les doc ?
-
+* 
 ### Contribuer à l'application
 
     Lors du lancement du jeu, ajouter l'attribution des rôles à chaque joueur : loup-garou, villageois, petite fille ou sorcier. Le nombre de loup-garou est calculé en fonction du nombre de joueurs.
