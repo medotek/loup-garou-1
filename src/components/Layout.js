@@ -10,7 +10,8 @@ const Body = styled.section`
   background-size:cover;
   box-sizing: border-box;
   padding: 0 10%;
-  
+  color:white;
+  text-align:center;
   article {
     background-color: transparent;
     padding: 20px;

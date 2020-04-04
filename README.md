@@ -282,3 +282,9 @@ Copier .env dans .env.local et remplir de dernier à l'aide de ses identifiants 
 
 Rédiger un court rapport -- inférieur à une page, expliquant les modifications apportées au projet. Motiver ses choix. Expliquer les difficultés rencontrées.
 
+Modification du bouton: nouveau style (utilisation de styled components)
+Création d'un fichier Input.js : nouveau style (utilisation de styled components)
+Création d'un fichier Header et Footer puis intégration dans un fichier Layout pour les afficher.
+Ajout d'un link dans le titre de la page dans Header (redirection à la page d'accueil si on clique dessus).
+...
+

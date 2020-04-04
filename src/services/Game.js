@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useState, useEffect} from 'react';
 import firebase from './Firebase';
 import { useSession } from './User'
-
+import styled from 'styled-components';
 
 export const useGameFromUser = user => {
   // retrieve the game for which the user is a player
@@ -44,10 +44,10 @@ export const GameProvider = props => {
   const {error, loading, game} = useGameFromUser(user);
 
   if (error) {
-    return <div>Erreur... {error}</div>;
+    return <div style={styles.color}>Erreur... {error}</div>;
   }
   if (loading) {
-    return <div>Chargement du master game en cours...</div>;
+    return <div style={styles.color}>Chargement du master game en cours...</div>;
   }
 
   const {children} = props;
@@ -62,3 +62,9 @@ export const useGame = () => {
   const {game} = useContext(gameContext);
   return {game};
 };
+const styles = {
+
+  color: {
+    color: 'white'
+  }
+}

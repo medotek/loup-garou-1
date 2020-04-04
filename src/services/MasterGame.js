@@ -73,10 +73,10 @@ export const MasterGameProvider = props => {
   const {error, loading, game} = useMasterGameFromUser(user);
 
   if (error) {
-    return <div>Erreur... {error}</div>;
+    return <div style={styles.color}>Erreur... {error}</div>;
   }
   if (loading) {
-    return <div>Chargement du master game en cours...</div>;
+    return <div style={styles.color}>Chargement du master game en cours...</div>;
   }
 
   const {children} = props;
@@ -91,3 +91,10 @@ export const useMasterGame = () => {
   const {game} = useContext(masterGameContext);
   return {game};
 };
+
+const styles = {
+
+  color: {
+    color: 'white'
+  }
+}
