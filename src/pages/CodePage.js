@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 import {useUser} from '../services/User';
 import Button from '../components/Button';
 import firebase from '../services/Firebase';
-
+import Input from '../components/Input';
 
 const CodePage = ({setGame}) => {
   const [code, setCode] = useState('');
@@ -41,22 +41,32 @@ const CodePage = ({setGame}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form onSubmit={handleSubmit} style={styles.container}>
+      <Input
         type="text"
         name="code"
         placeholder="Ajouter le code de la partie"
         onChange={e => setCode(e.target.value)}
-      />
-      <input
+      /><br/>
+      <Input
         type="text"
         name="name"
         placeholder="Ajouter votre nom"
         onChange={e => setName(e.target.value)}
-      />
+      /><br/>
       <Button>Démarrer</Button>
     </form>
   );
 };
+
+const styles = {
+  container: {
+    textAlign: 'center'
+  },
+  margin: {
+    marginTop:10,
+    marginBottom: 10
+  }
+}
 
 export default CodePage;
